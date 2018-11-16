@@ -3,8 +3,10 @@ package com.ocean.doctor.androiddoctor
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
-import android.widget.Toast
+import com.example.oceanlong.androiddoctorcore.AndroidDoctor
+import com.example.oceanlong.androiddoctorcore.plugins.ManifestPlugin
 import kotlinx.android.synthetic.main.function_activity_layout.*
+
 
 /**
  * Created by oceanlong on 2018/11/15.
@@ -16,7 +18,9 @@ class FunctionActivity : AppCompatActivity(){
         initSpinner()
         btn_invoke_func.setOnClickListener {
             val funcName = spinner_func.selectedItem.toString()
-            Toast.makeText(this , funcName , Toast.LENGTH_SHORT).show()
+//            val v = AndroidDoctor.getApplicationMetaData(this , "test")
+            val v = AndroidDoctor.getPlugin<ManifestPlugin>(ManifestPlugin::class.java)?.getApplicationMetaData(this, "test")
+            tv_result.setText("result:\n"+v)
 
         }
 
