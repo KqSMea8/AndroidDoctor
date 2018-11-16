@@ -17,6 +17,7 @@ class DoctorPluginManager{
             val obj = onwClass.newInstance()
             if (obj is IPlugin) {
                 mPluginMap.put(className , obj)
+                obj.init()
             }
         } catch (e: ClassNotFoundException) {
             e.printStackTrace()
@@ -30,7 +31,8 @@ class DoctorPluginManager{
     }
 
     fun uninstallPlugin(pluginName:String){
-        mPluginMap.remove(pluginName)
+        val plugin = mPluginMap.remove(pluginName)
+        plugin?.destroy()
     }
 
 
