@@ -1,1 +1,1 @@
-include ':sample', ':manifesthelper', ':androiddoctorcore'
+include ':sample', ':manifesthelper', ':androiddoctorcore', ':router-annotation', ':router-compiler', ':androiddoctorinterface'
