@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidDoctor.iml" filepath="$PROJECT_DIR$/AndroidDoctor.iml" />
       <module fileurl="file://$PROJECT_DIR$/androiddoctorcore/androiddoctorcore.iml" filepath="$PROJECT_DIR$/androiddoctorcore/androiddoctorcore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/androiddoctorinterface/androiddoctorinterface.iml" filepath="$PROJECT_DIR$/androiddoctorinterface/androiddoctorinterface.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/manifesthelper/manifesthelper.iml" filepath="$PROJECT_DIR$/manifesthelper/manifesthelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/router-annotation/router-annotation.iml" filepath="$PROJECT_DIR$/router-annotation/router-annotation.iml" />

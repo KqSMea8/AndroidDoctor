@@ -3,7 +3,6 @@ package com.ocean.doctor.androiddoctor
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
-import com.example.HelloWorld
 import com.example.oceanlong.androiddoctorcore.AndroidDoctor
 import com.example.oceanlong.androiddoctorcore.plugins.ManifestPlugin
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         AndroidDoctor.installPlugin(ManifestPlugin::class.java)
 
         initModules()
-        HelloWorld.main(null)
+
     }
 
     fun initModules(){
