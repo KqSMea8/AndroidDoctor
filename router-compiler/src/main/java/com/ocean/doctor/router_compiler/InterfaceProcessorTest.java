@@ -59,6 +59,7 @@ public class InterfaceProcessorTest extends AbstractProcessor {
                            StringBuilder extraComment = new StringBuilder();
                            String clzName = element.getSimpleName().toString();
                            extraComment.append(" clz name : ").append(clzName).append("\n");
+
                            createClass("com.example.oceanlong.androiddoctorcore.plugins", (TypeElement) element, extraComment.toString());
                        }
 
@@ -87,7 +88,6 @@ public class InterfaceProcessorTest extends AbstractProcessor {
 
 
     /**
-     * 创建接口类。耦合 {DoctorInterface}
      * @param packageName
      * @param clazz
      * @param extraComment
@@ -103,27 +103,6 @@ public class InterfaceProcessorTest extends AbstractProcessor {
                 .addModifiers(Modifier.PUBLIC)
                 .returns(void.class)
                 .build();
-
-
-        // create interface function
-        List<MethodSpec> interfaceMethodList = new ArrayList<>();
-        DoctorInterface doctorInterface = clazz.getAnnotation(DoctorInterface.class);
-
-        String implString = doctorInterface.module();
-
-        try {
-            extraComment += "implString : " + implString + "\n";
-            Class implClass = Class.forName(implString);
-            extraComment += "implString : " + implString + "\n";
-            Method[] methods = implClass.getDeclaredMethods();
-            for (Method method : methods){
-                extraComment = extraComment + " method : " + method.getName() + "\n";
-            }
-
-        } catch (ClassNotFoundException e) {
-            extraComment += "implString error : " + e + "\n";
-            e.printStackTrace();
-        }
 
 
         // create interface type

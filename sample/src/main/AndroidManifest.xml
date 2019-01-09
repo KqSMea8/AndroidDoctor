@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FunctionActivity"/>
+        <activity android:name="so_test.SOTestActivity"/>
         <meta-data
             android:name="test"
             android:value="lalala~"/>

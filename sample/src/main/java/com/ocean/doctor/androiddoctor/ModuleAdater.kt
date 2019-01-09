@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import so_test.SOTestActivity
 
 /**
  * Created by oceanlong on 2018/11/15.
@@ -24,9 +25,17 @@ class ModuleAdater(val context: Context, val dataList:List<ModuleBean>) : Recycl
         val bean = dataList[position]
         viewHolder.renderData(bean)
         viewHolder.btnModule.setOnClickListener {
-            val intent = Intent(context ,FunctionActivity::class.java)
-            intent.putExtra("func" , bean.func)
-            context.startActivity(intent)
+
+
+            if (bean.func.equals("soloaddemo")){
+                val intent = Intent(context ,SOTestActivity::class.java)
+                intent.putExtra("func" , bean.func)
+                context.startActivity(intent)
+            }else{
+                val intent = Intent(context ,FunctionActivity::class.java)
+                intent.putExtra("func" , bean.func)
+                context.startActivity(intent)
+            }
         }
     }
 

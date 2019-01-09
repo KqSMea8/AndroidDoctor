@@ -13,6 +13,10 @@ class ModuleFactory{
             bean.func = "minifestdoctor"
             moduleList.add(bean)
 
+            val soBean = ModuleBean()
+            soBean.name = "so load"
+            soBean.func = "soloaddemo"
+            moduleList.add(soBean)
             return moduleList
         }
     }

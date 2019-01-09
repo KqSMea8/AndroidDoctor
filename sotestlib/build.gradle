@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
 
 android {
     compileSdkVersion 26
@@ -8,11 +6,15 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -28,21 +30,33 @@ android {
             }
         }
     }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
 
 }
+
+//task(copyJarAndRes) {
+//    String fromDir = './build/intermediates/cmake/debug/obj'
+//    String toDir = '../sample/libs'
+//
+//    copy {
+//        into toDir
+//        from(fromDir) {
+//            include '**'
+//        }
+//    }
+//
+//    println "------------ sotest build finish --------------"
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
     testImplementation 'junit:junit:4.12'
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compileOnly project(':manifesthelper')
-
-    implementation project(':router-annotation')
-    annotationProcessor project(':router-compiler')
-}
-repositories {
-    mavenCentral()
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
 }
